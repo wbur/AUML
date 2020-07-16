@@ -1,0 +1,54 @@
+class Data():
+
+    # Create a dictionary called intents
+    # Each element can be a string or a list of strings,
+    # representing a single intent
+    # Each string represents a base utterance
+    # that can be parsed into multiple utterances.
+    #
+    # The syntax (AUML) can include the following:
+    # - simple, literal words
+    # - optional words, if followed by a ?
+    # - a list of OR'ed words, offset by () and separated by a |
+    # - Alexa literal slots, offset of course by {}
+    # - variables, begins with $ (see below)
+
+    intents = {
+        # just a single string with a literal word
+        'weather': 'weather',
+
+        # A list of strings with more complicated syntax
+        'playShow': [
+            # $play is a variable (see below)
+            # show is just a literal Alexa slot
+            # (it won't be altered in resulting utterances)
+            "$play {show}"
+        ],
+
+        'playNewscast': [
+            # $play, as above, is a variable
+            # 'the' and 'latest' are optional
+            # this will create 40 unique utterances
+            "$play the? $newscast"
+        ]
+    }
+
+    # Variables are a way to re-use phrases
+    # across multiple intents and base utterances.
+    # So $play maps to the play element of the variables dictionary.
+    # This is useful if you are using the same nouns and verbs across intents.
+    # And it allows you to sidestep the Alexa rule of only one slot per utterance.
+    variables = {
+        # Note the syntax:
+        # (foo|bar|baz) means:
+        # include one (and only one) of the pipe-separated words
+        #
+        # So "$play {show}" will create 5 separate utterances:
+        # - play {show}
+        # - play me {show}
+        # - I want top listen to {show}
+        # - I want to hear {show}
+        # - I'd like to hear {show}
+        'play': "(play|play me|I want to listen to|I want to hear|I'd like to hear)",
+        'newscast': '(news|newscast|news brief|news briefing)'
+    }
