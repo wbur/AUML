@@ -11,13 +11,13 @@ AUML is a simple regex-like syntax for turning a few sentences into 100s or 1000
 5. Run the parsing script to generate utterances: `./parse.py`
 6. If you'd like the output to be quoted or appended with commas, use `-q` and/or `-c` options respectively.
 7. (If you're on OSX, the all the utterances will be automatically inserted into your clipboard.)
-8. Insert utterances into your skill (via Devloper Console bulk edit tool, ASK-SDK, etc.)
+8. Insert utterances into your skill (via Developer Console bulk edit tool, ASK-SDK, etc.)
 
 ## Usage
 
 Each intent element can be a string or a list of strings, representing a single intent. Each string represents a base utterance that then can be parsed into multiple utterances.
 
-Each element can be a string or a list of strings, representing a single intent. Each string represents an base utterance that can be parsed into multiple utterances.
+Each element can be a string or a list of strings, representing a single intent. Each string represents a base utterance that can be parsed into multiple utterances.
 
 The syntax (AUML) can include the following:
 
