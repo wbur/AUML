@@ -8,9 +8,10 @@ AUML is a simple regex-like syntax for turning a few sentences into 100s or 1000
 2. Copy data.py.example to a new file called data.py: `cp data.py.example data.py`
 3. Make sure that parse.py is executable: `chmod u+x parse.py`
 4. Adjust the `intents` and (if needed) `variables` dictionaries within data.py to suit your skill.
-5. Run the parsing script to generate utterances: `python parse.py`
-6. (If you're on OSX, the all the utterances will be automatically inserted into your clipboard.)
-7. Insert utterances into your skill (via Devloper Console bulk edit tool, ASK-SDK, etc.)
+5. Run the parsing script to generate utterances: `./parse.py`
+6. If you'd like the output to be quoted or appended with commas, use `-q` and/or `-c` options respectively.
+7. (If you're on OSX, the all the utterances will be automatically inserted into your clipboard.)
+8. Insert utterances into your skill (via Devloper Console bulk edit tool, ASK-SDK, etc.)
 
 ## Usage
 

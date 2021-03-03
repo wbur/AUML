@@ -1,5 +1,11 @@
+#!/usr/bin/env python3
+
 import re, os, platform
 from data import Data
+import sys
+
+use_quotes = '-q' in sys.argv
+append_commas = '-c' in sys.argv
 
 data = Data()
 
@@ -70,8 +76,12 @@ print ('***********************************')
 
 clip = ''
 for utterance in unique_list:
-    print (utterance)
-    clip = clip + utterance + "\r"
+    quote = '"' if use_quotes else ''
+    comma = ',' if append_commas else ''
+
+    fmt_utterance = quote + utterance + quote + comma
+    print (fmt_utterance)
+    clip = clip + fmt_utterance + "\r"
 
 if platform.system() == 'Darwin':
     # if you’re on a mac
