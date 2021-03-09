@@ -3,6 +3,7 @@
 import re, os, platform
 from data import Data
 import sys
+import pyperclip
 
 use_quotes = '-q' in sys.argv
 append_commas = '-c' in sys.argv
@@ -83,9 +84,6 @@ for utterance in unique_list:
     print (fmt_utterance)
     clip = clip + fmt_utterance + "\r"
 
-if platform.system() == 'Darwin':
-    # if you’re on a mac
-    # all the utterances will be inserted
-    # into your clipboard
-    cmd = 'echo "%s" | pbcopy' % clip
-    os.system(cmd)
+# all the utterances will be inserted
+# into your clipboard
+pyperclip.copy(clip)
